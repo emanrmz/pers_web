@@ -4,75 +4,86 @@ body {
   overflow: hidden;
 }
 
+.backgroundSlide {
+  background: linear-gradient(to right, #fff 50%, #333 50%);
+  background-size: 200%;
+  background-position-x: 0;
+  animation: backgroundSlide .45s ease-in 2.75s 1 forwards;
+}
+
 #ball {
   position: absolute;
   top: -10em;
   height: 2em;
   width: 2em;
   border-radius: 50%;
-  background: blue;
+  background: #148EB2;
 }
 
 .bounce {
-    animation: bounce, grow;
-    animation-iteration-count: 1;
-    animation-duration: 2s, .6s;
-    animation-timing-function: cubic-bezier(.54,.71,.51,.95);
-    animation-delay: 0s, 2.05s;
-    animation-fill-mode: forwards;
+    animation:
+      bounceBall 1.12s cubic-bezier(.69,.18,.22,.97) 0s 1 forwards,
+      growBall .25s cubic-bezier(.54,.71,.51,.95) 1.15s 1 forwards,
+      gradientSlide 1.2s linear 1.5s 1 forwards;
 }
 
 
 /*-- KEYFRAMES --*/
 
-@keyframes bounce {
+@keyframes bounceBall {
   0% {
     transform: scaleY(3);
   }
-  20% {
+  25% {
     top: 50%;
-    transform: scaleY(.75);
+    transform: scaleY(.5);
   }
-  40% {
+  50% {
     top: 25%;
-    transform: scaleY(1);
+    transform: scaleY(1) scaleX(.85);
   }
-  65% {
+  100% {
     top: 50%;
     transform: scaleY(.85);
   }
-  85% {
-    top: 40%;
-    transform: scaleY(1);
-  }
-  100% {
-    top: 52%;
-    background: red;
-  }
 }
 
-@keyframes grow {
+@keyframes growBall {
   0% {
-    top: 52%;
+    top: 50%;
     border-radius: 50%;
   }
-  10% {
-    border-radius: 0;
-  }
-  50% {
-    width: 100%;
-  }
   100% {
-    top: 0;
-    height: 100%;
-    border-radius: 0;
-    width: 100%;
-    background: salmon;
+    top: calc(50% - 8em);
+    border-radius: .25em;
+    height: 16em;
+    width: 16em;
+    background: linear-gradient(to bottom,
+      #fd0202,
+      #ff5a00,
+      #fff402,
+      #56ff00,
+      #00d2ff
+      );
+    background-size: 360em;
   }
 }
 
-{
-  0% { transform: scale(0.0); animation-timing-function: cubic-bezier(0.33333, 0.66667, 0.66667, 1) }
-  69.0983% { transform: scale(1.2); animation-timing-function: cubic-bezier(0.33333, 0, 0.66667, 0.33333) }
-  100% { transform: scale(1.0) }
+@keyframes gradientSlide {
+  from {
+    background-position-y: 0;
+  }
+  to {
+    background-position-y: -344em;
+  }
+}
+
+@keyframes whiteSwipe {
+
+}
+
+@keyframes backgroundSlide {
+  to {
+    background-position-x: 100%;
+  }
 }
