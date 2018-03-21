@@ -1,4 +1,4 @@
-var ball = document.getElementById("ball");
+var ball = document.getElementById("animation");
 var body = document.getElementsByTagName("body")[0];
 
 window.onload = function() {

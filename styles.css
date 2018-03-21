@@ -5,28 +5,24 @@ body {
 }
 
 .backgroundSlide {
-  background: linear-gradient(to right, #fff 50%, #333 50%);
+  background: linear-gradient(to right, #fff 50%, #dadada 50%);
   background-size: 200%;
   background-position-x: 0;
-  animation: backgroundSlide .45s ease-in 2.75s 1 forwards;
+  animation: backgroundSlide .15s ease-in 1.15s 1 forwards;
 }
 
-#ball {
+#animation {
   position: absolute;
   top: -10em;
-  height: 2em;
-  width: 2em;
+  height: 4em;
+  width: 4em;
   border-radius: 50%;
-  background: #148EB2;
+  background: #282a2d;
 }
 
 .bounce {
-    animation:
-      bounceBall 1.12s cubic-bezier(.69,.18,.22,.97) 0s 1 forwards,
-      growBall .25s cubic-bezier(.54,.71,.51,.95) 1.15s 1 forwards,
-      gradientSlide 1.2s linear 1.5s 1 forwards;
+  animation: bounceBall 1.12s cubic-bezier(.69, .18, .22, .97) 0s 1 forwards, growBall .25s cubic-bezier(.54, .71, .51, .95) 1.15s 1 forwards, gradientSlide .82s linear 1.5s 1 forwards;
 }
-
 
 /*-- KEYFRAMES --*/
 
@@ -44,7 +40,6 @@ body {
   }
   100% {
     top: 50%;
-    transform: scaleY(.85);
   }
 }
 
@@ -55,17 +50,11 @@ body {
   }
   100% {
     top: calc(50% - 8em);
-    border-radius: .25em;
+    border-radius: 1em;
     height: 16em;
     width: 16em;
-    background: linear-gradient(to bottom,
-      #fd0202,
-      #ff5a00,
-      #fff402,
-      #56ff00,
-      #00d2ff
-      );
-    background-size: 360em;
+    background: linear-gradient(to bottom, #fd0202, #ff5a00, #fff402, #56ff00, #00d2ff, #ccff00, #da50d5);
+    background-size: 100% 720%;
   }
 }
 
@@ -74,13 +63,11 @@ body {
     background-position-y: 0;
   }
   to {
-    background-position-y: -344em;
+    background-position-y: 90%;
   }
 }
 
-@keyframes whiteSwipe {
-
-}
+@keyframes whiteSwipe {}
 
 @keyframes backgroundSlide {
   to {
