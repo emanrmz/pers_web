@@ -4,13 +4,6 @@ body {
   overflow: hidden;
 }
 
-.backgroundSlide {
-  background: linear-gradient(to right, #fff 50%, #dadada 50%);
-  background-size: 200%;
-  background-position-x: 0;
-  animation: backgroundSlide .15s ease-in 1.15s 1 forwards;
-}
-
 #animation {
   position: absolute;
   top: -10em;
@@ -20,8 +13,18 @@ body {
   background: #282a2d;
 }
 
+.backgroundSlide {
+  background: linear-gradient(to right, #fff 50%, #dadada 50%);
+  background-size: 200%;
+  background-position-x: 0;
+  animation: backgroundSlide .15s ease-in 1.15s 1 forwards;
+}
 .bounce {
-  animation: bounceBall 1.12s cubic-bezier(.69, .18, .22, .97) 0s 1 forwards, growBall .25s cubic-bezier(.54, .71, .51, .95) 1.15s 1 forwards, gradientSlide .82s linear 1.5s 1 forwards;
+  animation:
+    bounceBall 1.12s cubic-bezier(.69, .18, .22, .97) 0s 1 forwards,
+    growBall .25s cubic-bezier(.54, .71, .51, .95) 1.15s 1 forwards,
+    shake 300ms ease-out 1.75s 1 forwards,
+    gradientSlide .7s ease-out 2s 1 forwards;
 }
 
 /*-- KEYFRAMES --*/
@@ -53,21 +56,31 @@ body {
     border-radius: 1em;
     height: 16em;
     width: 16em;
-    background: linear-gradient(to bottom, #fd0202, #ff5a00, #fff402, #56ff00, #00d2ff, #ccff00, #da50d5);
-    background-size: 100% 720%;
   }
 }
 
 @keyframes gradientSlide {
-  from {
-    background-position-y: 0;
+  0% {background-color: #282a2d;}
+  30% {background-color: #fd0202;}
+  60% {background-color: #56ff00;}
+  100% {background-color: #00a8ff;}
+}
+
+@keyframes shake {
+  45% {
+    transform: translateY(-2em);
   }
-  to {
-    background-position-y: 90%;
+  66% {
+    transform: translateY(1em);
+  }
+  100% {
+    transform: translateY(0);
   }
 }
 
-@keyframes whiteSwipe {}
+@@keyframes squareSnapIntoRect {
+
+}
 
 @keyframes backgroundSlide {
   to {
