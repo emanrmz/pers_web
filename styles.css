@@ -4,27 +4,37 @@ body {
   overflow: hidden;
 }
 
-.backgroundSlide {
-  background: linear-gradient(to right, #fff 50%, #dadada 50%);
-  background-size: 200%;
-  background-position-x: 0;
-  animation: backgroundSlide .15s ease-in 1.15s 1 forwards;
-}
-
 #animation {
   position: absolute;
   top: -10em;
   height: 4em;
   width: 4em;
   border-radius: 50%;
-  background: #282a2d;
+  background-color: #282a2d;
 }
 
+.backgroundSlide {
+  background: linear-gradient(to right, #fff 50%, #dadada 50%);
+  background-size: 200%;
+  background-position-x: 0;
+  /* animation: backgroundSlide .15s ease-in 1.15s 1 forwards; */
+}
 .bounce {
-  animation: bounceBall 1.12s cubic-bezier(.69, .18, .22, .97) 0s 1 forwards, growBall .25s cubic-bezier(.54, .71, .51, .95) 1.15s 1 forwards, gradientSlide .82s linear 1.5s 1 forwards;
+  animation:
+    bounceBall 1.52s cubic-bezier(.69, .18, .22, .97) 0s 1 forwards,
+    ballToSquare .25s cubic-bezier(.54, .71, .51, .95) 1.25s 1 forwards,
+    squareSnapIntoRect .2s ease-in-out 1.25s 1 forwards,
+    rectSnapIntoCursor .15s ease-in-out 1.7s 1 forwards;
+    /* gradientSlide 1.7s ease-out 1.35s 1 forwards; */
 }
 
 /*-- KEYFRAMES --*/
+
+@keyframes backgroundSlide {
+  to {
+    background-position-x: 100%;
+  }
+}
 
 @keyframes bounceBall {
   0% {
@@ -43,34 +53,44 @@ body {
   }
 }
 
-@keyframes growBall {
+@keyframes gradientSlide {
+  0% {background-color: #282a2d;}
+  30% {background-color: #fd0202;}
+  60% {background-color: #56ff00;}
+  100% {background-color: #00a8ff;}
+}
+
+@keyframes ballToSquare {
   0% {
     top: 50%;
     border-radius: 50%;
   }
+  50% {
+    border-radius: 0;
+  }
   100% {
     top: calc(50% - 8em);
-    border-radius: 1em;
+    border-radius: 0;
     height: 16em;
     width: 16em;
-    background: linear-gradient(to bottom, #fd0202, #ff5a00, #fff402, #56ff00, #00d2ff, #ccff00, #da50d5);
-    background-size: 100% 720%;
   }
 }
 
-@keyframes gradientSlide {
+@keyframes squareSnapIntoRect {
+  to {
+      transform: translateY(-.5em) scale(.5);
+    }
+}
+
+@keyframes rectSnapIntoCursor {
   from {
-    background-position-y: 0;
+    transform:  scale(.5) ;
+  }
+  50% {
+    transform: scale(.5) scaleX(1.125);
   }
   to {
-    background-position-y: 90%;
+    transform: scale(.5) scaleX(.125) translateX(-850%);
   }
-}
 
-@keyframes whiteSwipe {}
-
-@keyframes backgroundSlide {
-  to {
-    background-position-x: 100%;
-  }
 }
