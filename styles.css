@@ -4,13 +4,6 @@ body {
   overflow: hidden;
 }
 
-.backgroundSlide {
-  background: linear-gradient(to right, #fff 50%, #dadada 50%);
-  background-size: 200%;
-  background-position-x: 0;
-  animation: backgroundSlide .15s ease-in 1.15s 1 forwards;
-}
-
 #animation {
   position: absolute;
   top: -10em;
@@ -20,11 +13,29 @@ body {
   background: #282a2d;
 }
 
+.backgroundSlide {
+  background: linear-gradient(to right, #fff 50%, #dadada 50%);
+  background-size: 200%;
+  background-position-x: 0;
+  /* animation: backgroundSlide .15s ease-in 1.15s 1 forwards; */
+}
 .bounce {
-  animation: bounceBall 1.12s cubic-bezier(.69, .18, .22, .97) 0s 1 forwards, growBall .25s cubic-bezier(.54, .71, .51, .95) 1.15s 1 forwards, gradientSlide .82s linear 1.5s 1 forwards;
+  animation:
+    bounceBall 1.52s cubic-bezier(.69, .18, .22, .97) 0s 1 forwards,
+    growBall .25s cubic-bezier(.54, .71, .51, .95) 1.25s 1 forwards,
+    /* shake 150ms ease-out 1.8s 1 forwards, */
+    squareSnapIntoRect .308s ease-in-out 1.25s 1 forwards,
+    rotate .05s linear 2.2s 1 forwards;
+    /* gradientSlide 1.7s ease-out 3s 1 forwards; */
 }
 
 /*-- KEYFRAMES --*/
+
+@keyframes backgroundSlide {
+  to {
+    background-position-x: 100%;
+  }
+}
 
 @keyframes bounceBall {
   0% {
@@ -43,34 +54,49 @@ body {
   }
 }
 
+@keyframes gradientSlide {
+  0% {background-color: #282a2d;}
+  30% {background-color: #fd0202;}
+  60% {background-color: #56ff00;}
+  100% {background-color: #00a8ff;}
+}
+
 @keyframes growBall {
   0% {
     top: 50%;
     border-radius: 50%;
   }
+  50% {
+    border-radius: 0;
+  }
   100% {
     top: calc(50% - 8em);
-    border-radius: 1em;
+    border-radius: 0;
     height: 16em;
     width: 16em;
-    background: linear-gradient(to bottom, #fd0202, #ff5a00, #fff402, #56ff00, #00d2ff, #ccff00, #da50d5);
-    background-size: 100% 720%;
+  }
+}
+@keyframes rotate {
+  to {
+  }
+
+}
+
+@keyframes shake {
+  45% {
+    transform: translateY(-2em);
+  }
+  66% {
+    transform: translateY(1em);
+  }
+  100% {
+    transform: translateY(0);
   }
 }
 
-@keyframes gradientSlide {
-  from {
-    background-position-y: 0;
-  }
-  to {
-    background-position-y: 90%;
-  }
-}
 
-@keyframes whiteSwipe {}
-
-@keyframes backgroundSlide {
+@keyframes squareSnapIntoRect {
   to {
-    background-position-x: 100%;
-  }
+      transform: scaleX(2.3) scaleY(.75) translateY(-1.25em) rotate(45deg) scale(.5) ;
+    }
 }
