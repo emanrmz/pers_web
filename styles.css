@@ -1,30 +1,86 @@
+/* http://meyerweb.com/eric/tools/css/reset/ v2.0 | 20110126 License: none (public domain) */ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; } /* HTML5 display-role reset for older browsers */ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; } body { line-height: 1; } ol, ul { list-style: none; } blockquote, q { quotes: none; } blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; } table { border-collapse: collapse; border-spacing: 0; }
+
 body {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
   overflow: hidden;
+  width: 100vw;
+  height: 100vh;
 }
 
-.backgroundSlide {
-  background: linear-gradient(to right, #fff 50%, #dadada 50%);
-  background-size: 200%;
-  background-position-x: 0;
-  animation: backgroundSlide .15s ease-in 1.15s 1 forwards;
+#animationEnd {
+  animation: animationEnd 1.85s;
 }
 
-#animation {
+#animationObject {
   position: absolute;
   top: -10em;
   height: 4em;
   width: 4em;
   border-radius: 50%;
-  background: #282a2d;
+  background-color: #282a2d;
 }
 
-.bounce {
-  animation: bounceBall 1.12s cubic-bezier(.69, .18, .22, .97) 0s 1 forwards, growBall .25s cubic-bezier(.54, .71, .51, .95) 1.15s 1 forwards, gradientSlide .82s linear 1.5s 1 forwards;
+#animationObject.animationSequence {
+  animation:
+  bounceBall 1.52s cubic-bezier(.69, .18, .22, .97) 0s 1 forwards,
+  ballToSquare .25s cubic-bezier(.54, .71, .51, .95) 1.25s 1 forwards,
+  squareSnapIntoRect .2s ease-in-out 1.25s 1 forwards,
+  rectSnapIntoCursor .5s ease-in-out 1.7s 1 forwards;
+  /* gradientSlide 1.7s ease-out 1.35s 1 forwards; */
 }
 
-/*-- KEYFRAMES --*/
+body.backgroundSlide {
+  background: linear-gradient(to right, #fff 50%, #dadada 50%);
+  background-size: 200%;
+  background-position-x: 0;
+  /* animation: backgroundSlide .15s ease-in 1.75s 1 forwards; */
+}
+
+h1.heroName {
+  position: absolute;
+  top: 40vh;
+  width: 50vh;
+  font-size: 10vh;
+  color: #333;
+  font-family: "acta-display";
+  /* animation: nameToCorner .5s ease-in 1s 1 forwards; */
+}
+
+
+/*---------------------------------------------------*/
+/*------------------- KEYFRAMES ---------------------*/
+/*---------------------------------------------------*/
+
+@keyframes animationEnd {}
+
+@keyframes backgroundSlide {
+  to {
+    background-position-x: 100%;
+  }
+}
+
+@keyframes ballToSquare {
+  0% {
+    top: 50%;
+    border-radius: 50%;
+  }
+  50% {
+    border-radius: 0;
+  }
+  100% {
+    top: calc(50% - 8em);
+    border-radius: 0;
+    height: 16em;
+    width: 16em;
+  }
+}
 
 @keyframes bounceBall {
   0% {
@@ -43,34 +99,51 @@ body {
   }
 }
 
-@keyframes growBall {
-  0% {
-    top: 50%;
-    border-radius: 50%;
+@keyframes gradientSlide {
+  0% {background-color: #282a2d;}
+  30% {background-color: #fd0202;}
+  60% {background-color: #56ff00;}
+  100% {background-color: #00a8ff;}
+}
+
+@keyframes nameToCorner {
+  25% {
+    top: 40vh;
+  }
+  to {
+    top: 4vh;
+    width: 96vw;
+    font-size: 4vh;
+  }
+}
+
+@keyframes squareSnapIntoRect {
+  to {
+      transform: scale(.5);
+    }
+}
+
+@keyframes rectSnapIntoCursor {
+  from {
+    right: calc(50% - 8em);
+    transform:  scale(.5) ;
+  }
+  25% {
+    transform: scale(.5) scaleX(3.125);
+  }
+  45% {
+    transform: scale(.5) scaleX(.125);
+    right: 20%;
+  }
+  50% {
+    transform-origin: 100% 50%;
+    transform: scale(.5) scaleX(.025);
+    right: 20%;
+    background-color: auto;
   }
   100% {
-    top: calc(50% - 8em);
-    border-radius: 1em;
-    height: 16em;
-    width: 16em;
-    background: linear-gradient(to bottom, #fd0202, #ff5a00, #fff402, #56ff00, #00d2ff, #ccff00, #da50d5);
-    background-size: 100% 720%;
-  }
-}
-
-@keyframes gradientSlide {
-  from {
-    background-position-y: 0;
-  }
-  to {
-    background-position-y: 90%;
-  }
-}
-
-@keyframes whiteSwipe {}
-
-@keyframes backgroundSlide {
-  to {
-    background-position-x: 100%;
+    transform-origin: 100% 50%;
+    transform: scale(.5) scaleX(.025);
+    right: 50%;
   }
 }
