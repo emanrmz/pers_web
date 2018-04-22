@@ -1,76 +1,81 @@
-body {
+.header {
+  position: fixed;
+  top: -9vw;
+  width: 100vw;
+  height: 10vw;
+  z-index: 2;
+  transition: all .25s ease-out;
+}
+
+.header.scrolled {
+  top: 0;
+  background-color: #fff;
+  box-shadow: 1px 3px 29px 0px rgba(0, 0, 0, 0.04);
+}
+
+.hamburguesa {
+  width: 0px;
+  height: 3vw;
+  border-left: .75vw dotted #000;
+  position: absolute;
+  right: 6vw;
+  top: 2.5vh;
+}
+
+
+.container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   overflow: hidden;
 }
 
-.backgroundSlide {
-  background: linear-gradient(to right, #fff 50%, #dadada 50%);
-  background-size: 200%;
-  background-position-x: 0;
-  animation: backgroundSlide .15s ease-in 1.15s 1 forwards;
+.personalStatement {
+  font-size: 7vw;
+  line-height: 7.5vw;
+  padding: 15vh 10vw 0 10vw;
+  font-family: sans-serif;
+  font-weight: 100;
+  color: #c5c5c5;
 }
 
-#animation {
-  position: absolute;
-  top: -10em;
-  height: 4em;
-  width: 4em;
-  border-radius: 50%;
-  background: #282a2d;
+.personalStatementSubtext {
+  font-size: 1.5vw;
+      line-height: 3vw;
+      padding: 1vh 10vw 30vh 10vw;
+      font-family: sans-serif;
+      width: 30vw;
 }
 
-.bounce {
-  animation: bounceBall 1.12s cubic-bezier(.69, .18, .22, .97) 0s 1 forwards, growBall .25s cubic-bezier(.54, .71, .51, .95) 1.15s 1 forwards, gradientSlide .82s linear 1.5s 1 forwards;
+.workContainer {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: white;
 }
 
-/*-- KEYFRAMES --*/
-
-@keyframes bounceBall {
-  0% {
-    transform: scaleY(3);
-  }
-  25% {
-    top: 50%;
-    transform: scaleY(.5);
-  }
-  50% {
-    top: 25%;
-    transform: scaleY(1) scaleX(.85);
-  }
-  100% {
-    top: 50%;
-  }
+.workContainer.scrolled {
+  background-color: red;
 }
 
-@keyframes growBall {
-  0% {
-    top: 50%;
-    border-radius: 50%;
-  }
-  100% {
-    top: calc(50% - 8em);
-    border-radius: 1em;
-    height: 16em;
-    width: 16em;
-    background: linear-gradient(to bottom, #fd0202, #ff5a00, #fff402, #56ff00, #00d2ff, #ccff00, #da50d5);
-    background-size: 100% 720%;
-  }
+.workTitle {
+  align-self: flex-start;
+  width: 60vw;
+  padding: 0 7vw;
+  font-size: 12vw;
 }
 
-@keyframes gradientSlide {
-  from {
-    background-position-y: 0;
-  }
-  to {
-    background-position-y: 90%;
-  }
+.workImage {
+  width: 45vw;
+  height: 45vw;
+  background-color: pink;
+  align-self: center;
 }
 
-@keyframes whiteSwipe {}
-
-@keyframes backgroundSlide {
-  to {
-    background-position-x: 100%;
-  }
+.workDescription {
+  align-self: flex-end;
+  width: 60vw;
+  padding: 0 7vw;
+  font-size: 5.5vw;
 }

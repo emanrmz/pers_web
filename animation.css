@@ -1,0 +1,205 @@
+#animationWrap {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+  height: 100vh;
+  background: url(pic.jpg) no-repeat center fixed, linear-gradient(to top, pink, blue);
+  background-blend-mode: screen;
+  background-size: cover;
+  background-color: white;
+  animation: animationWrapEnd .5s ease-out 1.85s forwards;
+}
+
+@keyframes animationWrapEnd {
+  to {
+    background-color: unset;
+  }
+}
+
+
+#animationEnd {
+  animation: animationEnd 1.72s;
+}
+
+#animationObject {
+  position: absolute;
+  top: -10em;
+  height: 4vh;
+  width: 4vh;
+  border-radius: 50%;
+  background-color: #999;
+  margin-top: 9vw;
+}
+
+#animationObject.animationSequence {
+  animation:
+  bounceBall 1.52s cubic-bezier(.69, .18, .22, .97) 0s 1 forwards,
+  ballToSquare .25s cubic-bezier(.54, .71, .51, .95) 1.25s 1 forwards,
+  squareSnapIntoRect .2s ease-in-out 1.25s 1 forwards,
+  rectSnapIntoBar .25s ease-in-out 1.7s 1 forwards;
+  /* barToBorder .25s ease-out 2.25s 1 forwards; */
+  /* gradientSlide 1.7s ease-out 1.35s 1 forwards; */
+}
+
+animationWrap.backgroundSlide {
+  /* background: linear-gradient(to right, #fff 50%, #dadada 50%); */
+  background-size: 200%;
+  background-position-x: 0;
+  /* animation: backgroundSlide .15s ease-in 1.75s 1 forwards; */
+}
+
+h1.heroName {
+    opacity: 0;
+    font-size: 15vw;
+    color: #fff;
+    font-family: "acta-display";
+    font-weight: 600;
+    font-style: italic;
+    text-align: center;
+    line-height: 12vw;
+    letter-spacing: -.5vw;
+    animation: fadeIn .15s ease-in 0s 1 forwards;
+  }
+
+  h1.heroName::after {
+    display: block;
+    content: "Interactive Developer";
+    font-size: 2vw;
+    line-height: 10vw;
+    font-family: sans-serif;
+    font-style: normal;
+    letter-spacing: 1vw;
+    font-weight: 100;
+    text-transform: uppercase;
+    animation: fadeIn .15s ease-in .25s 1 forwards;
+  }
+
+  h1.name {
+    opacity: 0;
+    font-size: 3vw;
+    color: #c5c5c5;
+    font-family: "acta-display";
+    font-weight: 600;
+    font-style: italic;
+    line-height: 2.5vw;
+    padding: 2vw;
+    transition: all .5s ease-out;
+  }
+
+  h1.name.scrolled {
+    opacity: 1;
+    color: #000;
+  }
+
+
+/*---------------------------------------------------*/
+/*------------------- KEYFRAMES ---------------------*/
+/*---------------------------------------------------*/
+
+@keyframes animationEnd {}
+
+@keyframes backgroundSlide {
+  to {
+    background-position-x: 100%;
+  }
+}
+
+@keyframes ballToSquare {
+  0% {
+    transform-origin: 50% 50%;
+    top: 50%;
+    border-radius: 50%;
+  }
+  50% {
+    transform-origin: 50% 50%;
+    border-radius: 0;
+  }
+  100% {
+    transform-origin: 50% 50%;
+    top: calc(50% - 8vh);
+    border-radius: 0;
+    height: 16vh;
+    width: 16vh;
+  }
+}
+
+@keyframes bounceBall {
+  0% {
+    transform: scaleY(3);
+  }
+  25% {
+    top: 70%;
+    transform: scaleY(.5);
+  }
+  50% {
+    top: 25%;
+    transform: scaleY(1) scaleX(.85);
+  }
+  100% {
+    top: 55%;
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes gradientSlide {
+  0% {background-color: #282a2d;}
+  30% {background-color: #fd0202;}
+  60% {background-color: #56ff00;}
+  100% {background-color: #00a8ff;}
+}
+
+@keyframes nameToCorner {
+  to {
+    top: 4vw;
+    font-size: 4vh;
+  }
+}
+
+@keyframes nameSubToCorner {
+  to {
+    top:13vh;
+    font-size: 2vh;
+  }
+}
+
+@keyframes squareSnapIntoRect {
+  to {
+      transform: scale(.5);
+    }
+}
+
+@keyframes rectSnapIntoBar {
+  from {
+    width: 16vw;
+    right: calc(50% - 8vw);
+    transform:  scale(.5);
+  }
+  100% {
+    width: 24vw;
+    transform: scale(1) scaleX(2.125) scaleY(.0125);
+    background-color: white;
+  }
+}
+
+
+@keyframes barToBorder {
+  to {
+    transform: scale(1) scaleX(1) scaleY(1);
+    background-color: rgba(255,255,255,0);
+    border: 1px solid #333;
+    width: 50vw;
+    height: 30vh;
+    top: 60vh;
+  }
+}
