@@ -45,8 +45,9 @@ $(window).scroll(function(){
   });
 
   for (i = 0; i < 3; i++) {
+  let bar = $('.workScroller')[i];
   let targ = $('.workContainer')[i];
-  if (isScrolledIntoView(targ)){
+  if (isScrolledIntoView(bar)){
     console.log([i]+'IS SCROLLED BABY!!!!');
     targ.classList.add("scrolled");
   }else{
