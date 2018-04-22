@@ -48,8 +48,10 @@ $(window).scroll(function(){
   let targ = $('.workContainer')[i];
   if (isScrolledIntoView(targ)){
     console.log([i]+'IS SCROLLED BABY!!!!');
+    targ.classList.add("scrolled");
   }else{
     console.log([i]+'aint scrolled');
+    targ.classList.remove("scrolled");
   }
 
 
