@@ -3,7 +3,7 @@
   top: -9vw;
   width: 100vw;
   height: 10vw;
-  z-index: 2;
+  z-index: 3;
   transition: all .25s ease-out;
 }
 
@@ -22,12 +22,13 @@
   top: 2.5vh;
 }
 
-
-.container {
+.statementContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
   overflow: hidden;
+  height: 100vh;
+  background: #fff;
 }
 
 .personalStatement {
@@ -41,10 +42,10 @@
 
 .personalStatementSubtext {
   font-size: 1.5vw;
-      line-height: 3vw;
-      padding: 1vh 10vw 30vh 10vw;
-      font-family: sans-serif;
-      width: 30vw;
+  line-height: 3vw;
+  padding: 1vh 10vw 30vh 10vw;
+  font-family: sans-serif;
+  width: 30vw;
 }
 
 .workScroller {
@@ -53,19 +54,20 @@
   height: 1vh;
   margin-bottom: 99vh;
   width: 5vw;
-  background: linear-gradient(to bottom,pink,blue);
+  background: linear-gradient(to bottom, pink, blue);
 }
 
 .workContainer {
   visibility: hidden;
-  height: 90vh;
-  width: 90vw;
+  height: calc(100vh - 10vw);
+  width: 100vw;
   position: fixed;
-  top: 10vh;
+  top: 10vw;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  background-color: white;
+  background: linear-gradient( 45deg, #e5ff8c, #45d1ff);
+  overflow: hidden;
 }
 
 .workContainer.scrolled {
@@ -75,21 +77,91 @@
 
 .workTitle {
   align-self: flex-start;
-  width: 60vw;
+  width: 65vw;
   padding: 0 7vw;
-  font-size: 12vw;
+  font-size: 10vw;
+  font-family: "acta-display";
+  font-weight: 600;
+  font-style: italic;
+  color: #fff;
 }
 
 .workImage {
   width: 45vw;
   height: 45vw;
-  background-color: pink;
+  background-color: unset;
   align-self: center;
+  border: 1px solid #fff;
+  /* border-radius: 50%; */
 }
 
 .workDescription {
   align-self: flex-end;
   width: 60vw;
   padding: 0 7vw;
-  font-size: 5.5vw;
+  font-size: 4.5vw;
+  line-height: 1;
+  font-family: sans-serif;
+  text-align: right;
+  color: #fff;
+}
+
+.bubble {
+  position: fixed;
+  top: 3vh;
+  height: 50vh;
+  background: linear-gradient( -45deg, #e5ff8c, #45d1ff);
+  width: 50vh;
+  border-radius: 50%;
+  z-index: -1;
+  left: 10vw;
+  filter: blur(1.6em);
+  animation: float 16s ease-in-out 0s infinite alternate;
+  transform-origin: center;
+}
+
+.bubble2 {
+  display: block;
+  position: fixed;
+  top: 3vh;
+  height: 25vh;
+  background: linear-gradient( -45deg, #e5ff8c, #45d1ff);
+  width: 25vh;
+  border-radius: 50%;
+  z-index: -1;
+  left: 60vw;
+  filter: blur(1.6em);
+  animation: float 12s ease-in-out 0s infinite alternate-reverse;
+  transform-origin: center;
+
+}
+
+.bubble3 {
+  display: block;
+  position: fixed;
+  top: -37vh;
+  left: 25%;
+  height: 95vh;
+  background: linear-gradient( -45deg, #e5ff8c, #45d1ff);
+  width: 95vh;
+  border-radius: 50%;
+  z-index: -2;
+  filter: blur(2em);
+  animation: float 20s ease-in-out 0s infinite alternate-reverse;
+  transform-origin: center;
+
+}
+
+@keyframes float {
+  from {
+    top: -10vh;
+    transform: scale(1, .65);
+  }
+  25% {
+    transform: scale(.65, 1);
+  }
+  to {
+    top: 60vh;
+    transform: scale(1, .65);
+  }
 }
