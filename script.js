@@ -10,13 +10,6 @@ $(document).ready(function() {
   let animationWrap = document.getElementById("animationWrap");
   let animationEnd = document.getElementById("animationEnd");
 
-  function createH1() {
-    let h1 = document.createElement("h1");
-    h1.className = "heroName";
-    h1.innerHTML = "Emmanuel<br>Ramirez";
-    animationWrap.insertBefore(h1, animationObject);
-  }
-
   animationObject.className = "animationSequence";
   animationWrap.className = "backgroundSlide";
   animationEnd.addEventListener("animationend", createH1);
