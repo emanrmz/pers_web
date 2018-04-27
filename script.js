@@ -1,66 +1,63 @@
-window.onload = function() {
-
-let animationObject = document.getElementById("animationObject");
-let animationWrap = document.getElementById("animationWrap");
-let animationEnd = document.getElementById("animationEnd");
-
-function createH1() {
-  let h1 = document.createElement("h1");
-  h1.className = "heroName";
-  h1.innerHTML = "Emmanuel<br>Ramirez";
-  animationWrap.insertBefore(h1, animationObject);
+// Scrolls window to top
+window.onbeforeunload = function() {
+  window.scrollTo(0, 0);
 }
 
-function removeFlex() {
-  animationWrap.style.justifyContent = "left";
-}
+// Script loads after document is ready
+$(document).ready(function() {
 
-animationObject.className = "animationSequence";
-animationWrap.className = "backgroundSlide";
-animationEnd.addEventListener("animationend", createH1);
+  let animationObject = document.getElementById("animationObject");
+  let animationWrap = document.getElementById("animationWrap");
+  let animationEnd = document.getElementById("animationEnd");
 
-function isScrolledIntoView(elem){
-  var $elem = $(elem);
-  var $window = $(window);
+  function createH1() {
+    let h1 = document.createElement("h1");
+    h1.className = "heroName";
+    h1.innerHTML = "Emmanuel<br>Ramirez";
+    animationWrap.insertBefore(h1, animationObject);
+  }
 
-  var docViewTop = $window.scrollTop();
-  var docViewBottom = docViewTop + $window.height();
+  animationObject.className = "animationSequence";
+  animationWrap.className = "backgroundSlide";
+  animationEnd.addEventListener("animationend", createH1);
 
-  var elemTop = $elem.offset().top;
-  var elemBottom = elemTop + $elem.height();
+  // Function returns Boolean for whether element is in window
+  function isScrolledIntoView(elem) {
+    var $elem = $(elem);
+    var $window = $(window);
 
-  return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
-}
+    var docViewTop = $window.scrollTop();
+    var docViewBottom = docViewTop + $window.height();
 
+    var elemTop = $elem.offset().top;
+    var elemBottom = elemTop + $elem.height();
 
-$(window).scroll(function(){
-  $('#animationObject').each(function(){
-    if(isScrolledIntoView($(this))){
-      $('h1.name').removeClass('scrolled');
-      $('.header').removeClass('scrolled');
-    } else {
-      $('h1.name').addClass('scrolled');
-      $('.header').addClass('scrolled');
+    return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+  }
+
+  $(window).scroll(function() {
+    // If animationObject is inside window Boolean
+    $('#animationObject').each(function() {
+      if (isScrolledIntoView($(this))) {
+        $('h1.name').removeClass('scrolled');
+        $('.header').removeClass('scrolled');
+      } else {
+        $('h1.name').addClass('scrolled');
+        $('.header').addClass('scrolled');
+      }
+    });
+    // Loop workScrollers through Scrolling function
+    for (i = 0; i < 3; i++) {
+      let bar = $('.workScroller')[i];
+      let targ = $('.workContainer')[i];
+      if (isScrolledIntoView(bar)) {
+        targ.classList.add("scrolled");
+      } else {
+        targ.classList.remove("scrolled");
+      }
     }
   });
 
-  for (i = 0; i < 3; i++) {
-  let bar = $('.workScroller')[i];
-  let targ = $('.workContainer')[i];
-  if (isScrolledIntoView(bar)){
-    console.log([i]+'IS SCROLLED BABY!!!!');
-    targ.classList.add("scrolled");
-  }else{
-    console.log([i]+'aint scrolled');
-    targ.classList.remove("scrolled");
-  }
 
 
-  }
-
-
-});
-
-
-
-} //END of Onload
+}); //END of Onload

@@ -9,7 +9,7 @@
   flex-direction: column;
   overflow: hidden;
   height: 100vh;
-  background: url(pic.jpg) no-repeat center fixed, linear-gradient(to top, pink, blue);
+  background: url(images/pic.jpg) no-repeat center fixed, linear-gradient(to top, pink, blue);
   background-blend-mode: screen;
   background-size: cover;
   background-color: white;
