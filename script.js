@@ -12,7 +12,6 @@ $(document).ready(function() {
 
   animationObject.className = "animationSequence";
   animationWrap.className = "backgroundSlide";
-  animationEnd.addEventListener("animationend", createH1);
 
   // Function returns Boolean for whether element is in window
   function isScrolledIntoView(elem) {
