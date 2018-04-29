@@ -7,11 +7,7 @@ window.onbeforeunload = function() {
 $(document).ready(function() {
 
   let animationObject = document.getElementById("animationObject");
-  let animationWrap = document.getElementById("animationWrap");
-  let animationEnd = document.getElementById("animationEnd");
-
   animationObject.className = "animationSequence";
-  animationWrap.className = "backgroundSlide";
 
   // Function returns Boolean for whether element is in window
   function isScrolledIntoView(elem) {
