@@ -9,7 +9,7 @@
   flex-direction: column;
   overflow: hidden;
   height: 100vh;
-  background: url(images/pic.png) no-repeat fixed, linear-gradient(to top, #fee3ec, #8f84ff) fixed;
+  background: url(images/pic.png) no-repeat, linear-gradient(to top, #fee3ec, #8f84ff);
   background-size: contain;
   background-position: center 100vh, center;
   transition: background-position .5s;
