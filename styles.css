@@ -8,12 +8,8 @@
   align-items: center;
   flex-direction: column;
   overflow: hidden;
-  height: 100vh;
-  background: url(images/pic.png) no-repeat fixed, linear-gradient(to top, #fee3ec, #8f84ff) fixed;
-  background-size: contain;
-  background-position: center 100vh, center;
-  transition: background-position .5s;
-  animation: animationWrapEnd .5s cubic-bezier(0.1, 1.04, 0.43, 1.06) 1.85s forwards;
+  height: 75vh;
+  margin-top: 12.5vh;
 }
 
 #animationObject {
@@ -42,6 +38,7 @@ h1.heroName {
   font-family: "acta-display";
   font-weight: 600;
   font-style: italic;
+  transition: color .5s ease-in;
   animation: fadeIn .15s ease-in 1.72s 1 forwards;
 }
 
@@ -100,27 +97,33 @@ h1.name.scrolled {
 }
 
 .statementContainer {
+  opacity: 0;
   overflow: hidden;
   height: 80vw;
-  background: #fff;
+  width: 90vw;
+  margin: auto;
   margin-bottom: 70vh;
+  text-align: center;
+  transition: opacity .85s ease-out;
+  transition-delay: .25s;
 }
 
 .personalStatement {
+  margin: auto;
   font-size: 7vw;
   line-height: 7.5vw;
-  padding: 15vw 10vw 0 10vw;
   font-family: sans-serif;
-  font-weight: 100;
-  color: #c5c5c5;
+  font-weight: 800;
+  color: #fff;
 }
 
 .personalStatementSubtext {
+  margin: auto;
+  padding-top: 3em;
   font-size: 2.5vw;
   line-height: 5vw;
-  padding: 2vh 10vw 30vh 10vw;
   font-family: sans-serif;
-  width: 80vw;
+  width: 50vw;
 }
 
 .workScroller {
@@ -138,7 +141,10 @@ h1.name.scrolled {
   width: 100vw;
   position: fixed;
   top: 0;
-  background: #b8e8f8;
+  background: linear-gradient(to top, #8f84ff, #fde2eb);
+  background-size: contain;
+  background-position: center 100vh;
+  transition: background-position .5s;
 }
 
 .workContainer {
@@ -235,47 +241,48 @@ h1.name.scrolled {
 }
 
 .bubble {
+  display: block;
   position: fixed;
-  top: 3vh;
-  height: 50vh;
-  background: linear-gradient( -45deg, #e5ff8c, #45d1ff);
-  width: 50vh;
+  background: linear-gradient( -45deg, #6e459a, #8f84ff, #fcfcfc);
   border-radius: 50%;
-  z-index: -1;
-  left: 10vw;
   filter: blur(1.6em);
-  animation: float 16s ease-in-out 0s infinite alternate;
   transform-origin: center;
 }
 
-.bubble2 {
-  display: block;
-  position: fixed;
-  top: 3vh;
-  height: 25vh;
-  background: linear-gradient( -45deg, #e5ff8c, #45d1ff);
-  width: 25vh;
-  border-radius: 50%;
-  z-index: -1;
-  left: 60vw;
-  filter: blur(1.6em);
-  animation: float 12s ease-in-out 0s infinite alternate-reverse;
-  transform-origin: center;
+.bubble:nth-child(1) {
+  height: 150vh;
+  width: 150vh;
+  top: -75vh;
+  left: -50%;
+  filter: blur(2em);
+  animation: float 24s ease-in-out 0s infinite alternate;
 }
 
-.bubble3 {
-  display: block;
-  position: fixed;
+.bubble:nth-child(2) {
+  height: 95vh;
+  width: 95vh;
   top: -37vh;
   left: 25%;
-  height: 95vh;
-  background: linear-gradient( -45deg, #e5ff8c, #45d1ff);
-  width: 95vh;
-  border-radius: 50%;
-  z-index: -2;
-  filter: blur(2em);
-  animation: float 20s ease-in-out 0s infinite alternate-reverse;
-  transform-origin: center;
+  filter: blur(1em);
+  animation: float 16s ease-in-out 0s infinite alternate-reverse;
+}
+
+.bubble:nth-child(3) {
+  height: 50vh;
+  width: 50vh;
+  top: 3vh;
+  left: 10vw;
+  filter: blur(.5em);
+  animation: float 16s ease-in-out 0s infinite alternate;
+}
+
+.bubble:nth-child(4) {
+  height: 15vh;
+  width: 15vh;
+  top: 3vh;
+  left: 60vw;
+  filter: blur(.2em);
+  animation: float 12s ease-in-out 0s infinite alternate-reverse;
 }
 
 /*---------------------------------------------------*/

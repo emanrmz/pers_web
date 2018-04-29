@@ -25,13 +25,17 @@ $(document).ready(function() {
 
   $(window).scroll(function() {
     // If animationObject is inside window Boolean
-    $('#animationObject').each(function() {
+    $('#animationWrap').each(function() {
       if (isScrolledIntoView($(this))) {
         $('h1.name').removeClass('scrolled');
         $('.header').removeClass('scrolled');
+        $('h1.heroName').css("color", "rgba(255,255,255,1)");
+        $('.statementContainer').css("opacity", "0");
       } else {
         $('h1.name').addClass('scrolled');
         $('.header').addClass('scrolled');
+        $('h1.heroName').css("color", "rgba(255,255,255,0)");
+        $('.statementContainer').css("opacity", "1");
       }
     });
     // Loop workScrollers through Scrolling function
