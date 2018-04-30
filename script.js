@@ -23,6 +23,19 @@ $(document).ready(function() {
     return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
   }
 
+  function isScrolledIntoViewHalf(elem) {
+    var $elem = $(elem);
+    var $window = $(window);
+
+    var docViewTop = $window.scrollTop();
+    var docViewBottom = docViewTop + ($window.height()/2);
+
+    var elemTop = $elem.offset().top;
+    var elemBottom = elemTop + $elem.height();
+
+    return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+  }
+
   $(window).scroll(function() {
     // If animationObject is inside window Boolean
     $('#animationWrap').each(function() {
@@ -38,15 +51,26 @@ $(document).ready(function() {
         $('.statementContainer').css("opacity", "1");
       }
     });
-    // Loop workScrollers through Scrolling function
-    for (i = 0; i < 3; i++) {
+    // Loop workScrollers through Half Window Scrolling function
+    for (i = 0; i < 4; i++) {
       let bar = $('.workScroller')[i];
-      let targ = $('.workContainer')[i];
-      if (isScrolledIntoView(bar)) {
-        targ.classList.add("scrolled");
+      let workContainer = $('.workContainer')[i];
+      if (isScrolledIntoViewHalf(bar)) {
+        workContainer.classList.add("scrolled");
+        $('.statementContainer').css("opacity", "0");
       } else {
-        targ.classList.remove("scrolled");
+        workContainer.classList.remove("scrolled");
       }
+      if ($('.workContainer.scrolled').index() == 0){
+        $('.workWrap').css("filter", "hue-rotate(-.1turn)");
+      } else if ($('.workContainer.scrolled').index() == 1){
+        $('.workWrap').css("filter", "hue-rotate(-.5turn)");
+      } else if ($('.workContainer.scrolled').index() == 2){
+        $('.workWrap').css("filter", "hue-rotate(-.6turn)");
+      } else {
+        $('.workWrap').css("filter", "hue-rotate(0)");
+      }
+
     }
   });
 
