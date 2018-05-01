@@ -51,6 +51,11 @@ $(document).ready(function() {
 
 //fix for Mobile Safari viewport size for the workScrollers
 $('.workScroller').css("marginBottom", $(window).height()/2);
+//In case resizing window..
+$(window).resize(function(){
+$('.workScroller').css("marginBottom", $(window).height()/2);
+});
+
 
   $(window).scroll(function() {
     // If animationObject is inside window Boolean
