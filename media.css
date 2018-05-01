@@ -1,4 +1,10 @@
 @media (min-aspect-ratio: 1/1) {
+  .nav {
+    margin: auto;
+    clear: both;
+    height: 6.25vh;
+    padding-top: 6.25vh;
+  }
   h1.heroName {
     font-size: 15vh;
     line-height: 12vh;
@@ -10,19 +16,17 @@
     letter-spacing: 1vh;
   }
   .statementContainer {
-    height: 80vh;
-    margin-bottom: 70vh;
+    margin-bottom: 40vh;
   }
   .personalStatement {
-    font-size: 7vh;
-    line-height: 7.5vh;
-    padding: 15vw 10vw 0 10vw;
+    width: 40vw;
+    font-size: 3.5vh;
+    line-height: 3.5vh;
   }
   .personalStatementSubtext {
-    font-size: 2.5vh;
-    line-height: 5vh;
-    padding: 2vh 10vw 30vh 10vw;
-    width: 80vw;
+    width: 20vw;
+    font-size: 1.5vh;
+    line-height: 3vh;
   }
   h1.name {
     font-size: 3vh;
@@ -34,26 +38,56 @@
   }
   .hamburguesa {
     height: 3vh;
-    border-left: .75vh dotted #000;
     right: 6vw;
     top: 2.5vh;
   }
+  ol.pagination {
+    top: 50vh;
+    left: 5vw;
+  }
+
+  li.dot {
+    height: 1em;
+    width: 1em;
+    margin: 1em;
+    float: none;
+  }
+  .workContainer {
+    justify-content: flex-end;
+  }
+  .workContainer:after {
+    width: 50vw;
+    top: 20vh;
+    left: 25vw;
+    border-radius: 2vh;
+  }
   .workTitle {
-    padding: 2vh;
-    font-size: 10vh;
-    top: -100vh;
+    width: 80vw;
+    padding: 0;
+    font-size: 4vh;
+    color: #403f3f;
+  }
+  .subTitle {
+    font-size: 1.2vh;
+    color: #898989;
+    margin-top: 0;
   }
   .workDescription {
-    width: 60vw;
-    padding: 2vh;
-    font-size: 4.5vh;
-    line-height: 1.2;
-    bottom: -100vh;
+    width: 30vh;
+    font-size: 1.5vh;
+    line-height: 1.45;
+    text-align: right;
+    align-self: flex-end;
+    padding: 5vh 10vh 5vh 0;
   }
   .workImage {
     width: 45vw;
-    height: 25vh;
+    height: 35vh;
   }
+  .workImage img {
+    height: 35vh;
+  }
+  .scrolled .workImage img {}
 }
 
 /* End of  Media */

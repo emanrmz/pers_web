@@ -1,3 +1,64 @@
+body {
+  scroll-behavior: smooth;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  clear: both;
+  height: 6.25vh;
+  padding-top: 6.25vh;
+}
+
+.nav li {
+  float: left;
+  z-index: 2;
+  overflow: hidden;
+  text-align: center;
+  font-size: 1.2vh;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  letter-spacing: .125vw;
+  color: #3a3a3a;
+  position: relative;
+  top: -12.5vh;
+  margin: 0 2vw;
+  animation: navDown .5s cubic-bezier(0.15, 0.35, 0.39, 0.97) 1.75s 1 forwards;
+}
+
+.nav li:nth-child(1) {
+  animation-delay: 1.7s;
+}
+
+.nav li:nth-child(2) {
+  animation-delay: 1.9s;
+}
+
+.nav li:nth-child(3) {
+  animation-delay: 2.1s;
+}
+
+.nav li:after {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 1vh;
+  content: '';
+  background: #fff;
+  margin: auto;
+  top: 6px;
+  z-index: -1;
+  margin: auto;
+  transition: left .25s ease-in;
+  left: -100%;
+}
+
+.nav li:hover:after {
+  left: 0;
+  background: #fff;
+}
+
 #animationWrap {
   display: -webkit-box;
   display: -moz-box;
@@ -8,12 +69,7 @@
   align-items: center;
   flex-direction: column;
   overflow: hidden;
-  height: 100vh;
-  background: url(images/pic.png) no-repeat fixed, linear-gradient(to top, #fee3ec, #8f84ff) fixed;
-  background-size: contain;
-  background-position: center 100vh, center;
-  transition: background-position .5s;
-  animation: animationWrapEnd .5s cubic-bezier(0.1, 1.04, 0.43, 1.06) 1.85s forwards;
+  height: 75vh;
 }
 
 #animationObject {
@@ -32,6 +88,94 @@
   /* gradientSlide 1.7s ease-out 1.35s 1 forwards; */
 }
 
+#contact {
+  position: fixed;
+  left: 2.5%;
+  z-index: 3;
+  background-color: #fff;
+  width: 95%;
+  transition: height .35s ease-out, top .35s ease-out, opacity .2s ease-out, color .25s ease-out .35s;
+  border-radius: 2vh;
+  transform-origin: center;
+  height: 0;
+  top: 50%;
+  opacity: 0;
+  color: rgba(0, 0, 0, 0);
+  overflow: hidden;
+}
+
+#contact.clicked {
+  opacity: 1;
+  top: 10%;
+  height: 85%;
+  color: #000;
+}
+
+.contactTitle {
+  text-align: center;
+  padding-top: 36vh;
+  font-size: 2.2vh;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  letter-spacing: .25vh;
+}
+
+#closeContact {
+  position: absolute;
+  top: 2.5%;
+  right: 2.5%;
+  transform-origin: center;
+  height: 25px;
+  width: 0px;
+  padding: .25em 1em;
+  margin: 0;
+}
+
+span#closeContact:before {
+  content: '';
+  position: absolute;
+  display: block;
+  height: 3vh;
+  width: .125vw;
+  background-color: #000;
+  transform: rotate(45deg);
+}
+
+span#closeContact:after {
+  content: '';
+  position: absolute;
+  display: block;
+  height: 3vh;
+  width: .125vw;
+  background-color: #000;
+  transform: rotate(-45deg);
+}
+
+#closeContact:hover:before, #closeContact:hover:after {
+  transition: background-color .25s ease-in;
+  background-color: red;
+}
+
+a.emailLink {
+  display: block;
+  text-align: center;
+  padding-top: 4vh;
+  font-size: 3.2vW;
+  font-family: sans-serif;
+  letter-spacing: .25vh;
+  font-family: "acta-display";
+  font-weight: 100;
+  font-style: italic;
+  margin: auto;
+  width: 90%;
+  text-decoration: underline;
+}
+
+a.emailLink:hover {
+  transition: color .25s ease-in;
+  color: #8169d4;
+}
+
 h1.heroName {
   opacity: 0;
   font-size: 15vw;
@@ -42,6 +186,7 @@ h1.heroName {
   font-family: "acta-display";
   font-weight: 600;
   font-style: italic;
+  transition: color .5s ease-in;
   animation: fadeIn .15s ease-in 1.72s 1 forwards;
 }
 
@@ -77,7 +222,7 @@ h1.name.scrolled {
 
 .header {
   position: fixed;
-  top: -9vw;
+  top: -15vw;
   width: 100vw;
   height: 10vw;
   z-index: 3;
@@ -86,50 +231,83 @@ h1.name.scrolled {
 
 .header.scrolled {
   top: 0;
-  background-color: #fff;
-  box-shadow: 1px 3px 29px 0px rgba(0, 0, 0, 0.04);
 }
 
 .hamburguesa {
   width: 0px;
   height: 3vw;
-  border-left: .75vw dotted #000;
   position: absolute;
-  right: 6vw;
+  right: 10vw;
   top: 2.5vh;
 }
 
+.hamburguesa:before {
+  display: block;
+  content: '^';
+  font-size: 3vh;
+  transform: scaleX(2.5);
+  animation: pulse 1s cubic-bezier(0.15, 0.61, 0.57, 0.96) infinite alternate;
+  position: absolute;
+  top: 0;
+}
+
 .statementContainer {
+  opacity: 0;
   overflow: hidden;
-  height: 80vw;
-  background: #fff;
-  margin-bottom: 70vh;
+  margin: auto;
+  text-align: center;
+  transition: opacity .5s ease-out;
 }
 
 .personalStatement {
+  width: 90vw;
+  margin: auto;
   font-size: 7vw;
   line-height: 7.5vw;
-  padding: 15vw 10vw 0 10vw;
   font-family: sans-serif;
-  font-weight: 100;
-  color: #c5c5c5;
+  font-weight: 800;
+  color: #fff;
 }
 
 .personalStatementSubtext {
+  margin: auto;
+  padding-top: 3em;
   font-size: 2.5vw;
   line-height: 5vw;
-  padding: 2vh 10vw 30vh 10vw;
   font-family: sans-serif;
-  width: 80vw;
+  width: 50vw;
 }
 
 .workScroller {
-  float: right;
+  float: left;
   clear: both;
-  height: 1vh;
-  margin-bottom: 99vh;
-  width: 0;
   background: linear-gradient(to bottom, pink, blue);
+  height: 0;
+  width: 10px;
+}
+
+li.dot {
+  height: 1vw;
+  width: 1vw;
+  border-radius: 50%;
+  margin: 1vw;
+  transition: all .125s ease-in;
+  border: 1px solid #fff;
+  float: left;
+}
+
+
+ol.pagination {
+  position: fixed;
+  bottom: 5vh;
+  left: 40vw;
+  opacity: 0;
+}
+
+
+li.dot.active {
+  transform: scale(1.75);
+  background: #fff;
 }
 
 .workWrap {
@@ -138,7 +316,10 @@ h1.name.scrolled {
   width: 100vw;
   position: fixed;
   top: 0;
-  background: #b8e8f8;
+  background: linear-gradient(to top, #8f84ff, #fde2eb);
+  background-size: contain;
+  background-position: center 100vh;
+  transition: filter 1s;
 }
 
 .workContainer {
@@ -157,40 +338,65 @@ h1.name.scrolled {
 .workContainer.scrolled {
   visibility: visible;
   z-index: 2;
-  transition: all .5s ease-in;
 }
 
-.workContainer.scrolled:nth-child(1) {
-  background-color: #00802657;
+.workContainer:after {
+  height: 50vh;
+  width: 80vw;
+  background-color: #fff;
+  display: block;
+  content: '';
+  position: absolute;
+  top: 14vh;
+  left: 10vw;
+  z-index: -2;
+  border-radius: 2vw;
+  box-shadow: 0px 9px 16px 0px #0000003d;
+  transition: opacity .2s ease-in;
+  opacity: 0;
 }
 
-.workContainer.scrolled:nth-child(2) {
-  background-color: #fc009957;
-}
-
-.workContainer.scrolled:nth-child(3) {
-  background-color: #1534ff57;
+.workContainer.scrolled:after {
+  opacity: 1;
 }
 
 .workTitle {
   align-self: center;
-  width: 80vw;
+  width: 70vw;
   padding: 7vw;
   font-size: 10vw;
   font-family: "acta-display";
   font-weight: 600;
   font-style: italic;
-  color: #fff;
+  color: #403f3f;
   position: relative;
-  opacity: 0;
-  top: -100vw;
   text-align: center;
+  transition: top .35s, opacity .35s;
+  transition-delay: .35s;
+  opacity: 0;
+  top: -.5em;
 }
 
 .scrolled .workTitle {
   opacity: 1;
   top: 0;
-  transition: top .15s, opacity .5s;
+}
+
+.subTitle {
+  text-align: center;
+  font-size: 3.75vw;
+  color: #898989;
+  text-transform: uppercase;
+  font-family: sans-serif;
+  margin-top: -6vw;
+  padding: 1vh;
+  transition: opacity .35s;
+  transition-delay: .5s;
+  opacity: 0;
+}
+
+.scrolled .subTitle {
+  opacity: 1;
 }
 
 .workImage {
@@ -198,84 +404,109 @@ h1.name.scrolled {
   display: flex;
   width: 45vw;
   height: 35vw;
-  background-color: unset;
+  padding: 7vh 0 4vh 0;
   align-self: center;
 }
 
 .workImage img {
+  position: absolute;
+  width: auto;
+  height: 35vw;
+  margin: auto;
+  transition: opacity, transform;
+  transition-duration: .25s, .35s;
+  transition-timing-function: cubic-bezier(0.46, 0.58, 0.66, 1.4);
   opacity: 0;
 }
 
-.scrolled .workImage img {
-  width: auto;
-  height: 100%;
-  margin: auto;
+.workContainer:nth-child(even) .workImage img {
+  transform: translateX(-8vw);
+}
+
+.workContainer:nth-child(odd) .workImage img {
+  transform: translateX(8vw);
+}
+
+.workContainer:nth-child(even).scrolled .workImage img, .workContainer:nth-child(odd).scrolled .workImage img {
   opacity: 1;
-  transition: opacity .35s cubic-bezier(0.49, -0.47, 0.44, 2.57);
+  transform: translateX(0);
+}
+
+.workImage img:nth-child(2) {
+  transition-delay: .25s;
+}
+
+.workImage img:nth-child(3) {
+  transition-delay: .35s;
+}
+
+.workImage img:nth-child(4) {
+  transition-delay: .45s;
 }
 
 .workDescription {
   align-self: center;
-  width: 80vw;
-  padding: 7vw;
-  font-size: 4.5vw;
+  width: 45vw;
+  font-size: 3vw;
   line-height: 1.2;
   font-family: sans-serif;
   text-align: center;
   color: #fff;
   position: relative;
   opacity: 0;
-  bottom: -100vw;
+  bottom: -.5em;
 }
 
 .scrolled .workDescription {
   opacity: 1;
   bottom: 0;
-  transition: bottom .25s, opacity .5s;
+  transition: opacity .35s ease-in, bottom .35s ease-in;
+  transition-delay: .35s;
 }
 
 .bubble {
+  display: block;
   position: fixed;
-  top: 3vh;
-  height: 50vh;
-  background: linear-gradient( -45deg, #e5ff8c, #45d1ff);
-  width: 50vh;
+  background: linear-gradient( -45deg, #6e459a, #8f84ff, #fcfcfc);
   border-radius: 50%;
-  z-index: -1;
-  left: 10vw;
   filter: blur(1.6em);
-  animation: float 16s ease-in-out 0s infinite alternate;
   transform-origin: center;
 }
 
-.bubble2 {
-  display: block;
-  position: fixed;
-  top: 3vh;
-  height: 25vh;
-  background: linear-gradient( -45deg, #e5ff8c, #45d1ff);
-  width: 25vh;
-  border-radius: 50%;
-  z-index: -1;
-  left: 60vw;
-  filter: blur(1.6em);
-  animation: float 12s ease-in-out 0s infinite alternate-reverse;
-  transform-origin: center;
+.bubble:nth-child(1) {
+  height: 150vh;
+  width: 150vh;
+  top: -75vh;
+  left: -50%;
+  filter: blur(2em);
+  animation: float 24s ease-in-out 0s infinite alternate;
 }
 
-.bubble3 {
-  display: block;
-  position: fixed;
+.bubble:nth-child(2) {
+  height: 95vh;
+  width: 95vh;
   top: -37vh;
   left: 25%;
-  height: 95vh;
-  background: linear-gradient( -45deg, #e5ff8c, #45d1ff);
-  width: 95vh;
-  border-radius: 50%;
-  z-index: -2;
-  filter: blur(2em);
-  animation: float 20s ease-in-out 0s infinite alternate-reverse;
-  transform-origin: center;
+  filter: blur(1em);
+  animation: float 16s ease-in-out 0s infinite alternate-reverse;
+}
+
+.bubble:nth-child(3) {
+  height: 50vh;
+  width: 50vh;
+  top: 3vh;
+  left: 10vw;
+  filter: blur(.5em);
+  animation: float 16s ease-in-out 0s infinite alternate;
+}
+
+.bubble:nth-child(4) {
+  height: 15vh;
+  width: 15vh;
+  top: 3vh;
+  left: 60vw;
+  filter: blur(.2em);
+  animation: float 12s ease-in-out 0s infinite alternate-reverse;
 }
 
 /*---------------------------------------------------*/

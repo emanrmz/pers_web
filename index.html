@@ -15,49 +15,89 @@
 </head>
 
 <body>
-
+  <ul class="nav">
+    <li><a href="#animationObject">About</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#" id="contactButton">Contact</a></li>
+  </ul>
   <div class="header">
     <h1 class="name">Emmanuel<br>Ramirez</h1>
-    <div class="hamburguesa"></div>
+    <a href="#">
+      <div class="hamburguesa"></div>
+    </a>
   </div>
   <div id="animationWrap">
     <h1 class="heroName">Emmanuel<br>Ramirez</h1>
     <div id="animationObject"></div>
   </div>
-  <div class="statementContainer">
+  <div id="about" class="statementContainer">
 
     <p class="personalStatement">Welcome! I've coded this portfolio site to display some of my recent creations.
     </p>
     <p class="personalStatementSubtext">Principals of web accessibility and adaptable design for all users is central to my process of creating every interactive experience.</p>
   </div>
 
+  <div class="workScroller" id="work"></div>
   <div class="workScroller"></div>
   <div class="workScroller"></div>
   <div class="workScroller"></div>
-  <ul>
+  <div class="workScroller"></div>
+
+
+
+  <ul class="workSection">
+
+    <ol class="pagination">
+      <li class="dot"></li>
+      <li class="dot"></li>
+      <li class="dot"></li>
+      <li class="dot"></li>
+    </ol>
+
     <li class="workContainer">
       <h3 class="workTitle">Web Developer at CivicPlus</h3>
-      <div class="workImage"><img src="images/civicplus.png"></div>
-      <p class="workDescription">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem.</p>
+      <h4 class="subTitle">Development</h4>
+      <div class="workImage"><img src="images/cpComputer.png"><img src="images/cpLaptop.png"><img src="images/cpPhone.png"></div>
+      <p class="workDescription">Working as a Front End Web Developer to deliver consistent user experiences across a range of devices and breakpoints.</p>
     </li>
 
     <li class="workContainer">
       <h3 class="workTitle">Build-A-Truck</h3>
-      <div class="workImage"><img src="images/buildatruck.png"></div>
-      <p class="workDescription">An interactive configurator for fire trucks that initiates and streamlines communication with clients.</p>
+      <h4 class="subTitle">Design / Development</h4>
+      <div class="workImage"><img src="images/badComputer.png"><img src="images/badTablet.png"></div>
+      <p class="workDescription">This interactive configurator for fire trucks was designed and developed to initiate and streamline communication with clients.</p>
+    </li>
+
+    <li class="workContainer">
+      <h3 class="workTitle">Weis Fire & Safety</h3>
+      <h4 class="subTitle">Design</h4>
+      <div class="workImage"><img src="images/weisLaptop.png"><img src="images/weisPhone.png"></div>
+      <p class="workDescription">The complete redesign of weisfiresafety.com included many stages of planning and development with a team.</p>
     </li>
 
     <li class="workContainer">
       <h3 class="workTitle">Santa Cruz Burrito</h3>
-      <div class="workImage"><img src="images/santacruzbig.png"></div>
-      <p class="workDescription">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem.</p>
+      <h4 class="subTitle">Design / Development</h4>
+      <div class="workImage"><img src="images/scComputer.png"><img src="images/scPhone1.png"><img src="images/scPhone2.png"><img src="images/scPhone3.png"></div>
+      <p class="workDescription">The design and development of the restaurant's website was tailored to fit its unique personality and culinary options.</p>
     </li>
-    <li class="workWrap">
-      <div class="bubble"></div>
-      <div class="bubble2"></div>
-      <div class="bubble3"></div>
-    </li>
+
+    <div class="workWrap">
+      <ul>
+        <li class="bubble"></li>
+        <li class="bubble"></li>
+        <li class="bubble"></li>
+        <li class="bubble"></li>
+      </ul>
+    </div>
   </ul>
+
+  <div id="contact">
+    <span id="closeContact"></span>
+    <h4 class="contactTitle">Contact me at</h4>
+    <a href="mailto:emmanuel.r.ramirez@gmail.com" class="emailLink">emmanuel.r.ramirez@gmail.com</a>
+  </div>
+
 
   <script src="script.js"></script>
 </body>
