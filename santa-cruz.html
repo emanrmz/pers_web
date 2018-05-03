@@ -1,0 +1,76 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>:-3</title>
+  <link rel="stylesheet" type="text/css" href="reset.css">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="stylesheet" type="text/css" href="media.css">
+  <link rel="stylesheet" type="text/css" href="keyframes.css">
+
+  <link rel="stylesheet" href="https://use.typekit.net/hfh6tja.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+  <ul class="nav">
+    <li><a href="#animationObject">About</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#contact" id="contactButton">Contact</a></li>
+  </ul>
+  <div class="header">
+    <h1 class="name"><a href="index.html">Emmanuel<br>Ramirez</a></h1>
+    <a href="#">
+      <div class="hamburguesa"></div>
+    </a>
+  </div>
+
+  <div id="banner">
+    <img src="images/santacruz-banner.png">
+    <span>Case Study / Interactive</span>
+  </div>
+
+  <div id="content">
+    <h4>Local Burrito Bar</h4>
+    <p>Santa Cruz Burrito was in need of a website after their previous site, built from a template, became neglected until the domain and hosting expired. The local business reached out to me to craft a website reflecting the identity and atmosphere of the restaurant.</P>
+    <img src="images/santacruz.jpg">
+    <p>The design criteria for the site was to have simple navigation with easy access to the menu, catering options, and contact information. Because Santa Cruz is a "choose your own ingredients" restaurant, the menu had to be easy to follow and guide a customer through the steps of ordering. Visual elements of the restaurant such as the wall mounted bicycles are subtly presented, and the essential food photography was shot on site to echo the experience of eating at Santa Cruz.</p>
+    <img src="images/santacruz2.png">
+    <p>On technical aspects of the site, the navigation menu is always visible and unobtrusive, with media queries to change the position of the links from the right side to the center under the logo. A flexible grid allows the content to fit within a full range of displays, with changes in font size and column width taking effect based on the size of the window.</p>
+    <p>All in all, the site accomplished exactly what the restaurant needed; a simple reference guide to the basic information about the menu and locale that also expressed itself visually as a fresh local business.</p>
+  </div>
+
+
+  <div id="footer">
+    <p>Emmanuel Ramirez</p>
+  </div>
+
+  <div id="contact">
+    <span id="closeContact"></span>
+    <h4 class="contactTitle">Contact me at</h4>
+    <a href="mailto:emmanuel.r.ramirez@gmail.com" class="emailLink">emmanuel.r.ramirez@gmail.com</a>
+  </div>
+
+  <script>
+    let contact = document.getElementById('contact');
+    let contactButton = document.getElementById('contactButton');
+    let closeContact = document.getElementById('closeContact');
+
+
+    contactButton.addEventListener('click', function() {
+      $('#contact').addClass('clicked');
+    });
+
+    closeContact.addEventListener('click', function() {
+      if ($('#contact').hasClass('clicked')) {
+        $('#contact').removeClass('clicked');
+      }
+      console.log('contactToggle function ran')
+    });
+  </script>
+</body>
+
+</html>

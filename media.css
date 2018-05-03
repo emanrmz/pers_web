@@ -1,6 +1,5 @@
 @media (min-aspect-ratio: 1/1) {
   .nav {
-    margin: auto;
     clear: both;
     height: 6.25vh;
     padding-top: 6.25vh;
@@ -16,15 +15,19 @@
     letter-spacing: 1vh;
   }
   .statementContainer {
-    margin-bottom: 40vh;
+    margin-bottom: 30vh;
+    flex-flow: row;
+    align-items: flex-start;
+  }
+  .statementText {
+    text-align: right;
+    width: 30vw;
   }
   .personalStatement {
-    width: 40vw;
     font-size: 3.5vh;
     line-height: 3.5vh;
   }
   .personalStatementSubtext {
-    width: 20vw;
     font-size: 1.5vh;
     line-height: 3vh;
   }
@@ -42,10 +45,8 @@
     top: 2.5vh;
   }
   ol.pagination {
-    top: 50vh;
     left: 5vw;
   }
-
   li.dot {
     height: 1em;
     width: 1em;
